@@ -1,0 +1,168 @@
+user@nenta:~$ $cat>file4.txt
+user@nenta:~$ cat>grepfile.txt
+welcome to ubuntu
+linux and unix 
+hello world
+^D
+user@nenta:~$ $grep "welcome to the world grepfile.txt
+> ^C
+bash: :s^C: substitution failed
+> bash: unexpected EOF while looking for matching `"'
+bash: syntax error: unexpected end of file
+user@nenta:~$ $grep "welcome" grepfile.txt
+welcome: command not found
+user@nenta:~$ $grep -h "to" grepfile.txt
+-h: command not found
+user@nenta:~$ $grep "to" grepfile.txt
+to: command not found
+user@nenta:~$ grep "to" grepfile.txt
+welcome to ubuntu
+user@nenta:~$ grep -e 'linux' -e 'unix' grepfile.txt
+linux and unix 
+user@nenta:~$ cat grepfile.txt
+welcome to ubuntu
+linux and unix 
+hello world
+^D
+user@nenta:~$ grep -v 'one' grepfile.txt
+welcome to ubuntu
+linux and unix 
+hello world
+^D
+deleting
+user@nenta:~$ grep -v 'world' grepfile.txt
+welcome to ubuntu
+linux and unix 
+^D
+showing how many number of toimes repeating
+user@nenta:~$ grep -o 'o' grepfile.txt
+o
+o
+o
+o
+user@nenta:~$ grep -o 'linux' grepfile.txt
+linux
+user@nenta:~$ cat>monthFile.txt
+february
+may
+june
+august
+december
+november
+july
+user@nenta:~$ sort month.txt
+sort: cannot read: month.txt: No such file or directory
+sorting
+user@nenta:~$ sort monthFile.txt
+august
+december
+february
+july
+june
+may
+november
+user@nenta:~$ sort -M monthFile.txt
+february
+may
+june
+july
+august
+november
+december
+user@nenta:~$ cat>numbers.txt
+45
+6
+24
+9
+80
+71
+26
+44
+56
+user@nenta:~$ sort -n numbers.txt
+6
+9
+24
+26
+44
+45
+56
+71
+80
+user@nenta:~$ sort -u numbers.txt
+24
+26
+44
+45
+56
+6
+71
+80
+9
+user@nenta:~$ cat>sedfile.txt
+    Check the proxy settings to make sure that they are correct.
+    Check to make sure your computer has a working network connection.
+    If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web.
+
+user@nenta:~$ sed 's/Check/' sedfile.txt
+sed: -e expression #1, char 8: unterminated `s' command
+user@nenta:~$ sed 's/Check/CHECK/' sedfile.txt
+    CHECK the proxy settings to make sure that they are correct.
+    CHECK to make sure your computer has a working network connection.
+    If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web.
+
+user@nenta:~$ sed '/CHECK/d' sedfile.txt
+    Check the proxy settings to make sure that they are correct.
+    Check to make sure your computer has a working network connection.
+    If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web.
+
+user@nenta:~$ sed '/Check/d' sedfile.txt
+    If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web.
+
+awk///////////
+user@nenta:~$ cat>awkfile.txt
+venky storage id 4352
+vinay window id 5636
+manas unix id 6543
+ravi linux id 3234
+shravan ubuntu id 7362
+user@nenta:~$ awk '{print $1, $3}' awkfile.txt
+venky id
+vinay id
+manas id
+ravi id
+shravan id
+user@nenta:~$ awk '{print $4, $3}' awkfile.txt
+4352 id
+5636 id
+6543 id
+3234 id
+7362 id
+user@nenta:~$ awk '/manas/{print $4, $3}' awkfile.txt
+6543 id
+user@nenta:~$ awk '/manas/{print}' awkfile.txt
+manas unix id 6543
+user@nenta:~$ awk '{print NR,$0}' awkfile.txt
+1 venky storage id 4352
+2 vinay window id 5636
+3 manas unix id 6543
+4 ravi linux id 3234
+5 shravan ubuntu id 7362
+user@nenta:~$ awk '{print NR}' awkfile.txt
+1
+2
+3
+4
+5
+user@nenta:~$ awk 'NR==2{print NR, $0}' awkfile.txt
+2 vinay window id 5636
+user@nenta:~$ 
+
+user@nenta:~$ awk '{print}' awkfile.txt
+venky storage id 4352
+vinay window id 5636
+manas unix id 6543
+ravi linux id 3234
+shravan ubuntu id 7362
+user@nenta:~$ 
+
