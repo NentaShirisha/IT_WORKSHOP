@@ -1,0 +1,50 @@
+user@nenta:~$ touch file1
+user@nenta:~$ cat file1
+Hello
+^D
+;
+user@nenta:~$ cp file1 file2
+user@nenta:~$ mv file1 file2
+user@nenta:~$ rm[file1]
+user@nenta:~$ su user
+Password: 
+user@nenta:~$ df -1
+df: invalid option -- '1'
+Try 'df --help' for more information.
+user@nenta:~$ cal 4 2018
+     April 2018       
+Su Mo Tu We Th Fr Sa  
+ 1  2  3  4  5  6  7  
+ 8  9 10 11 12 13 14  
+15 16 17 18 19 20 21  
+22 23 24 25 26 27 28  
+29 30                 
+                      
+user@nenta:~$ date +%d%m%y
+250424
+user@nenta:~$ who [file1]
+user@nenta:~$ mkdir dir2
+user@nenta:~$ rmdir dir1
+user@nenta:~$ cd dir2
+user@nenta:~/dir2$ ls -altr
+total 8
+drwxrwxr-x  2 user user 4096 Apr 25 13:28 .
+drwxr-xr-x 25 user user 4096 Apr 25 13:28 ..
+user@nenta:~/dir2$ ls -alt
+total 8
+drwxr-xr-x 25 user user 4096 Apr 25 13:28 ..
+drwxrwxr-x  2 user user 4096 Apr 25 13:28 .
+user@nenta:~/dir2$ ls -l
+total 0
+user@nenta:~/dir2$ ls -ltr
+total 0
+user@nenta:~/dir2$ ls -a
+.  ..
+user@nenta:~/dir2$ which -a cat
+/usr/bin/cat
+/bin/cat
+user@nenta:~/dir2$ man cat
+user@nenta:~$ find dir1
+dir1
+user@nenta:~$ du
+
